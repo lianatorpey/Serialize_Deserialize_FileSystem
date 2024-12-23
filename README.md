@@ -1,9 +1,4 @@
-# Homework 1 - CSE 320 - Fall 2024
 #### Professors Eugene Stark and Dongyoon Lee
-
-### **Due Date: Friday 09/20/2024 @ 11:59pm**
-
-**Read the entire doc before you start**
 
 ## Introduction
 
@@ -38,55 +33,6 @@ as they will be replaced by the original versions during grading.
 
 > :nerd: Reference for pointers: [https://beej.us/guide/bgc/html/#pointers](https://beej.us/guide/bgc/html/#pointers).
 
-# Getting Started
-
-Fetch base code for `hw1` as described in `hw0`. You can find it at this link:
-[https://gitlab02.cs.stonybrook.edu/cse320/hw1](https://gitlab02.cs.stonybrook.edu/cse320/hw1).
-
-Both repos will probably have a file named `.gitlab-ci.yml` with different contents.
-Simply merging these files will cause a merge conflict. To avoid this, we will
-merge the repos using a flag so that the `.gitlab-ci.yml` found in the `hw1`
-repo will replace the `hw0` version.  To merge, use this command:
-
-```
-git merge -m "Merging HW1_CODE" HW1_CODE/master --strategy-option=theirs
-```
-
-> :scream: Based on past experience, many students will either ignore the above command or forget
-> to use it.  The result will be a **merge conflict**, which will be reported by git.
-> Once a merge conflict has been reported, it is essential to correct it before committing
-> (or to abort the merge without committing -- use `git merge --abort` and go back and try again),
-> because git will have inserted markers into the files involved indicating the locations of the
-> conflicts, and if you ignore this and commit anyway, you will end up with corrupted files.
-> You should consider it important to read up at an early stage on merge conflicts with git and
-> how to resolve them properly.
-
-Here is the structure of the base code:
-
-<pre>
-.
-├── .gitignore
-├── .gitlab-ci.yml
-└── hw1
-    ├── hw1.sublime-project
-    ├── include
-    │   ├── debug.h
-    │   └── global.h
-    ├── Makefile
-    ├── rsrc
-    │   ├── testdir
-    │   │   ├── dir
-    │   │   │   ├── goodbye
-    │   │   │   └── hello1
-    │   │   └── hello
-    │   └── test_in.bin
-    ├── src
-    │   ├── main.c
-    │   └── transplant.c
-    └── tests
-        └── hw1_tests.c
-</pre>
-
 - The `.gitignore` file is a file that tells `git` to ignore files with names
 matching specified patterns, so that they don't accidentally end up getting
 committed to the repository.
@@ -95,21 +41,6 @@ committed to the repository.
 to be performed by the GitLab server each time you push a commit.  Usually it will
 be configured to check that your code builds and runs, and that any provided unit tests
 are passed.  You are free to change this file if you like.
-
-> :scream:  The CI testing is for your own information; it does not directly have
-> anything to do with assignment grading or whether your commit has been properly
-> pushed to the server.  If some part of the testing fails, you will see the somewhat
-> misleading message "commit failed" on the GitLab web interface.
-> This does **not** mean that "your attempt to commit has failed" or that "your commit
-> didn't get pushed to the server"; the very fact that the testing was triggered at
-> all means that you successfully pushed a commit.  Rather, it means that "the CI tests
-> performed on a commit that you pushed did not succeed".  The purpose of the tests are
-> to alert you to possible problems with your code; if you see that testing has failed
-> it is worth investigating why that has happened.  However, the tests can sometimes
-> fail for reasons that are not your fault; for example, the entire CI "runner" system
-> may fail if someone submits code that fills up the system disk.  You should definitely
-> try to understand why the tests have failed if they do, but it is not necessary to be
-> overly obsessive about them.
 
 - The `hw1.sublime-project` file is a "project file" for use by the Sublime Text editor.
 It is included to try to help Sublime understand the organization of the project so that
@@ -933,26 +864,3 @@ for you to learn about Criterion, not to fully test your homework. You may write
 your own additional tests in `tests/transplant_tests.c`. However, this is not required
 for this assignment. Criterion documentation for writing your own tests can be
 found [here](http://criterion.readthedocs.io/en/master/).
-
-# Hand-in instructions
-**TEST YOUR PROGRAM VIGOROUSLY!**
-
-Make sure that you have implemented all the required functions specifed in `global.h`.
-
-Make sure that you have adhered to the restrictions (no array brackets, no prohibited
-header files, no modifications to files that say "DO NOT MODIFY" at the beginning,
-no functions other than `main()` in `main.c`) set out in this assignment document.
-
-Make sure your directory tree looks basically like it did when you started
-(there could possibly be additional files that you added, but the original organization
-should be maintained) and that your homework compiles (you should be sure to try compiling
-with both `make clean all` and `make clean debug` because there are certain errors that can
-occur one way but not the other).
-
-This homework's tag is: `hw1`
-
-`$ git submit hw1`
-
-> :nerd: When writing your program try to comment as much as possible. Try to
-> stay consistent with your formatting. It is much easier for your TA and the
-> professor to help you if we can figure out what your code does quickly!
